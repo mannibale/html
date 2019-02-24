@@ -1,0 +1,78 @@
+<!doctype html>
+
+<html>
+
+  <head>
+    <title>Form Feedback</title>
+  </head>
+
+  <body>
+
+    <?php # Script 2.3 - handle_form.php #2
+
+    // Create a shorthand for the form data
+
+    $name = $_REQUEST['name'];
+
+    $email = $_REQUEST['email'];
+
+    $comments = $_REQUEST['comments'];
+
+    /* Not Used:
+          $_REQUEST['age']
+
+          $_REQUEST['gender']
+
+          $_REQUEST['submit']
+        */
+
+        //Gender Variable $gender_variable:
+        if (isset($_REQUEST['gender'])) {
+          $gender = $_REQUEST['gender'];
+        } else {
+          $gender = NULL;
+        }
+
+    // Print a message based upon the gender_variable
+
+    if ($gender == 'M'){
+
+          echo '<p><b>Good day, Sir!</b></b>';
+
+    }       elseif      { ($gender == 'F') {
+
+          echo '<p><b>Good day, Madam!</b></p>';
+
+    }               else              { // No gender selected.
+
+          echo '<p><b>You forgot to enter your gender.</b></p>';
+
+    }
+
+   //Print the Submitted Info
+
+      echo "<p>Thank you, <b>$name</b>, for the following comments:<br/> <tt>$comments</tt></p>
+
+        <p>We will reply to you at <i>$email</i>.</p>\n";
+
+    /*
+
+        PHP FORM ELEMENTS to PHP VARIABLES
+-----------------------------------------------------
+          $_REQUEST['name']
+          $_REQUEST['email']
+          $_REQUEST['comments']
+          $_REQUEST['age']
+          $_REQUEST['gender']
+          $_REQUEST['submit']
+
+
+    */
+
+
+
+      ?>
+
+  </body>
+
+</html>
