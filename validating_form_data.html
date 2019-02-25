@@ -1,0 +1,148 @@
+<!doctype html>
+
+<html>
+
+  <head>
+    <title>Form Feedback</title>
+    <style type="text/css" title="text/css" media="all">
+
+    .error{
+
+      font-weight: bold;
+      color: #c00
+    }
+    </style>
+  </head>
+
+  <body>
+
+    <?php # Script 2.4 - handle_form.php #3
+
+    // Create a shorthand for the form data
+
+    $name = $_REQUEST['name'];
+
+    $email = $_REQUEST['email'];
+
+    $comments = $_REQUEST['comments'];
+
+    /* Not Used:
+          $_REQUEST['age']
+
+          $_REQUEST['gender']
+
+          $_REQUEST['submit']
+        */
+
+        // Validate the name
+        if (!empty($_REQUEST['name'])) {
+          $name = $_REQUEST['name'];
+        } else {
+          $name = NULL;
+        echo'<p class="error">You forgot to input your name.</p>';
+        }
+        // Validate the email
+        if (!empty($_REQUEST['email'])) {
+          $email = $_REQUEST['email'];
+        } else{
+          $email = NULL;
+        echo '<p class="error">You forgot to enter your emaial address.</p>';
+        }
+        // Validate the comments:
+        if (!empty($_REQUEST['comments'])) {
+          $comments = $_REQUEST['comments'];
+        } else{
+          $comments = NULL;
+        echo '<p class="error">You forgot to leave your comments.</p>';
+        }
+        // Validate the gender
+        if (isset($_REQUEST['gender'])){
+          $gender = ['gender'];
+          if ($gender == 'M'){
+            echo '<p><b>Good day, Sir!</b></p>';
+          } elseif ($gender =='F') {
+            echo '<p><b>Good day, Madam!</b></p>';
+          } else { // Unacceptable value.
+            $gender = NULL;
+            echo '<p class="error"><b>Gender should be either "M" or "F".</b></p>';
+          }
+        } else { // $_REQUEST['gender'] is not set.
+          $gender = NULL;
+          echo '<p class="error"><b>You forgot to select your gender.</b></p>';
+        }
+        // If everything is ok, print this message:
+        if ($name && $email && $gender && $comments){
+          echo "<p>Thank you, <b>$name</b>, for the following comments:<br/>
+          <tt>$comments</tt></p>
+          <p>We will reply to you at <i>$email</i></p>\n";
+        } else { // Missing form value.
+          echo '<p class="error">Please go back and fill out the form again.</p>';
+        }
+
+        //Gender Variable $gender_variable:
+        if (isset($_REQUEST['gender'])) {
+          $gender = $_REQUEST['gender'];
+        } else {
+          $gender = NULL;
+        }
+
+    // Print a message based upon the gender_variable
+
+    if ($gender == 'M'){
+
+          echo '<p><b>Good day, Sir!</b></b>';
+
+    }       elseif      { ($gender == 'F') {
+
+          echo '<p><b>Good day, Madam!</b></p>';
+
+    }               else              { // No gender selected.
+
+          echo '<p><b>You forgot to enter your gender.</b></p>';
+
+    }
+
+   //Print the Submitted Info
+
+      echo "<p>Thank you, <b>$name</b>, for the following comments:<br/> <tt>$comments</tt></p>
+
+        <p>We will reply to you at <i>$email</i>.</p>\n";
+
+    /*
+
+        PHP FORM ELEMENTS to PHP VARIABLES
+-----------------------------------------------------
+          $_REQUEST['name']
+          $_REQUEST['email']
+          $_REQUEST['comments']
+          $_REQUEST['age']
+          $_REQUEST['gender']
+          $_REQUEST['submit']
+
+
+    */
+
+    /*
+      SWITCH CONDITIONAL
+
+        switch ($variable) {
+          case 'value1';
+            // Do this.
+          break;
+          case 'value2';
+            // Do this instead.
+          break;
+          default:
+            // Do this then.
+          break;
+        }
+
+    */
+
+
+
+      ?>
+
+  </body>
+
+</html>
