@@ -1,0 +1,66 @@
+<!doctype html>
+
+<html>
+
+  <head>
+    <title>Arrays</title>
+  </head>
+
+  <body>
+    <form action="calendar.php" method="post">
+      <?php # Script 2.6 - calendar.php
+
+        //This Script makes three pull-down menus
+
+        // For an HTML form: months, days, years.
+
+        //Months Array
+
+        $months = array(
+        1 => 'January', 2 => 'February', 3 => 'March', 4 => 'April',
+        5 => 'May', 6 => 'June', 7 => 'July', 8 => 'August',
+        9 => 'September', 10 => 'October', 11 => 'November', 12 => 'December');
+
+        // Make the days and years Array
+
+        $days = range (1,31);
+
+        $years = range (1895, 2019);
+
+        // Make the months pull-down menu;
+
+        echo '<select name="month">';
+
+          foreach ($months as $key => $value) {
+            echo "<option value=\"$key\">$value</option>\n";
+          }
+
+        echo '</select>';
+
+        // Make the days pull-down menu:
+
+        echo '<select name="day">';
+
+        foreach ($days as $value) {
+          echo "<option value=\"$value\">$value</option>\n";
+        }
+
+        echo '</select>';
+
+        // Make the years pull-down menu;
+
+        echo '<select name="year">';
+
+        foreach ($years as $value) {
+          echo "<option value=\"$value\">$value</option>\n";
+        }
+
+        echo '</select>';
+
+        // pg 58 & 59
+      ?>
+
+
+  </body>
+
+</html>
